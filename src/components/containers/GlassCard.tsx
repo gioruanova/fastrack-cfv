@@ -9,7 +9,7 @@ export function GlassCard({ children, className = "" }: Props) {
   return (
     <div
       className={` bg-white/10 backdrop-blur-md border border-white/20 md:rounded-xl p-6
-        shadow-lg  mt-5 text-foreground ${className}`}
+        shadow-lg  mt-10 text-foreground ${className}`}
     >
       {children}
     </div>
