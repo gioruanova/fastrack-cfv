@@ -70,8 +70,8 @@ export const Navbar = () => {
           </div>
 
           {/* Right: ModeToggle  */}
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0 space-x-2">
-            <div className="flex flex-col md:flex-row-reverse gap-2 md:justify-start items-start">
+          <div className="absolute inset-y-0 right-0 flex items-center md:static md:inset-auto md:ml-6 md:pr-0 space-x-2">
+            <div className="flex flex-col md:flex-row-reverse gap-2 md:justify-start items-start m-0">
               <div className="hidden md:block">
                 <AccessBtn />
               </div>

@@ -45,9 +45,9 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(92.8% 0.006 264.531);
+  --background: oklch(86.407% 0.00146 285.364);
   --foreground: oklch(19.125% 0.00002 271.152);
-  --card: oklch(1 0 0);
+  --card: oklch(82.968% 0.00009 271.152 / 0.932);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
@@ -82,7 +82,7 @@
 .dark {
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
+  --card: oklch(21.033% 0.00588 285.832 / 0.842);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);

@@ -14,7 +14,7 @@ export function AccessBtn() {
 export function ContactBtn() {
   return (
     <Button asChild variant="cta" size="lg">
-      <a href="#contacto">Cotiza!</a>
+      <a href="#contacto">Contacto</a>
     </Button>
   );
 }
