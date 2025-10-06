@@ -35,7 +35,7 @@ export default function RootLayout({
             <header className="flex justify-end w-full sticky top-0 z-10">
               <Navbar />
             </header>
-            <main className="flex flex-col mt-8 w-full">{children}</main>
+            <main className="flex flex-col w-full">{children}</main>
             <Footer />
           </ThemeProvider>
         </body>

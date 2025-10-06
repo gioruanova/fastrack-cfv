@@ -16,7 +16,7 @@ export function HeroBanner() {
             className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
           ></div>
         </div>
-        <div className="mx-auto max-w-2xl py-10 pb-30 sm:py-48 lg:py-36">
+        <div className="mx-auto max-w-2xl pb-25 sm:py-48 lg:py-45">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-foreground ring-1 ring-white/10 hover:ring-white/20">
               Desarrollamos para un mundo real.{" "}
