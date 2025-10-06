@@ -138,7 +138,7 @@ export function Contact() {
   return (
     <>
       <GlassCard>
-        <div id="contacto">
+        <div className="py-18 sm:py-20" id="contacto">
           <SecondaryHeading>Contacto</SecondaryHeading>
 
           <DefaultParagraph>

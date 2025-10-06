@@ -42,7 +42,7 @@ const tiers = [
 export function Planes() {
   return (
     <GlassCard>
-      <div className="relative isolate py-8 sm:py-12 lg:px-8" id="planes">
+      <div className="py-18 sm:py-20" id="planes">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"

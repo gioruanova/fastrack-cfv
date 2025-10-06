@@ -114,11 +114,8 @@
   --select-color: #4d4d4e;
 }
 
-
-
-html{
+html {
   scroll-behavior: smooth;
-  scroll-padding-top: 10rem;
 }
 
 @layer base {
@@ -129,4 +126,3 @@ html{
     @apply bg-background text-foreground;
   }
 }
-

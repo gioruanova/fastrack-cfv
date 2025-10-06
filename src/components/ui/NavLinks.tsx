@@ -6,11 +6,13 @@ import { navLinks } from "@/data/navLinks";
 type NavLinksProps = {
   className?: string;
   isMobile?: boolean;
+  onLinkClick?: () => void;
 };
 
 export const NavLinks = ({
   className = "",
   isMobile = false,
+  onLinkClick,
 }: NavLinksProps) => {
   return (
     <ul className={className}>
@@ -21,6 +23,7 @@ export const NavLinks = ({
             className={`block px-3 py-2 rounded-md font-medium text-foreground hover:bg-white/5 ${
               isMobile ? "text-base" : "text-sm"
             }`}
+            onClick={onLinkClick}
           >
             {link.label}
           </a>

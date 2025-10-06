@@ -5,7 +5,7 @@ import { CodeExample } from "./CodeExample";
 export function Propuesta() {
   return (
     <GlassCard>
-      <div className=" py-14 sm:py-12" id="propuesta">
+      <div className="py-18 sm:py-20" id="propuesta">
         <div className="mx-auto max-w-2xl lg:max-w-7xl ">
           <h2 className="text-center text-base/7 font-semibold text-indigo-400">
             Desarrollo Ágil

@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 export function HeroBanner() {
   return (
-    <div id="backToTop">
+    <div id="backToTop" className="pt-20 md:pt-0">
       <div className="relative isolate px-6 pt-0 lg:px-8">
         <div
           aria-hidden="true"
