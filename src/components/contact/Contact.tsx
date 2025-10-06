@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { config } from "@/lib/config";
-import { GlassCard } from "../containers/GlassCard";
+import { GlassCard,GlassCardInner} from "../containers/GlassCard";
 import { Button } from "../ui/button";
 import { Spinner } from "../ui/spinner";
 import { Toaster, toast } from "sonner";
@@ -147,7 +147,7 @@ export function Contact() {
             contacto a la brevedad. Valoramos tu comunicación y trabajamos para
             ofrecer respuestas claras y efectivas.
           </DefaultParagraph>
-          <GlassCard className="md:w-1/2 mx-auto mt-8 rounded-md">
+          <GlassCardInner>
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-4 max-w-lg mx-auto"
@@ -268,7 +268,7 @@ export function Contact() {
                 </div>
               )}
             </form>
-          </GlassCard>
+          </GlassCardInner>
         </div>
       </GlassCard>
       <Toaster richColors position="top-right" />
