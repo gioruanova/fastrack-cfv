@@ -56,7 +56,7 @@ export const InstallButton = () => {
     return () => window.removeEventListener("beforeinstallprompt", handler as EventListener);
   }, []);
 
-  // --- FORZAR MODAL PARA TEST ---
+  // // --- FORZAR MODAL PARA TEST ---
   // useEffect(() => {
   //   const forceInstall = searchParams.get("forceInstall");
   //   if (forceInstall === "ios") {

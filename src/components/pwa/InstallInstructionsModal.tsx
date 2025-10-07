@@ -55,7 +55,7 @@ export const InstallInstructionsModal = ({
                   alt={`Step ${idx + 1}`}
                   width={150}
                   height={200}
-                  className="rounded-lg mx-auto my-5 max-h-70 md:max-h-200 w-auto size-full object-contain"
+                  className="rounded-lg mx-auto max-h-80 md:max-h-200 w-auto size-full object-contain"
                 />
               </CarouselItem>
             ))}
