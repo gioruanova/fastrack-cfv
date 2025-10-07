@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ModeToggle } from "../provider/ModeToggle";
 import { Button } from "@/components/ui/button";
 import { List } from "lucide-react";
@@ -15,28 +15,37 @@ import {
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleClick = () => {
     setTimeout(() => {
-      setMenuOpen(false); // cierra el menú después de 500ms
+      setMenuOpen(false); 
     }, 100);
   };
 
   return (
-    <nav className="bg-card relative after:pointer-events-none w-full">
-      <div className="mx-auto max-w-7xl px-2 py-0 md:py-2 md:px-6 lg:px-8 w-full">
+    <nav className={`relative transition-colors duration-300 ${ scrolled ? 'bg-card' :''} after:pointer-events-none w-full`}>
+      <div className={`mx-auto max-w-screen-2xl px-2 py-0 transition-padding duration-300 ${scrolled ? 'md:py-2 md:max-w-7xl' : 'md:py-12'} md:px-6 lg:px-8 w-full`}>
         <div className="relative flex h-16 items-center justify-between">
-        
-
           {/* Logo + Links desktop */}
           <div className="flex flex-1 items:start md:items-center justify-start md:justify-start">
             <div className="flex shrink-0 items-center">
               <a
-                className="flex flex-row md:flex-col gap-0.5 text-2xl leading-5 italic "
+                className="flex flex-row md:flex-col gap-0.5 text-2xl leading-5 italic capitalize "
                 href="#backToTop"
               >
-                <b>FAST</b>
-                <span className="font-extralight">TRACK</span>
+                <b>fast</b>
+                <span className="font-extralight">track</span>
               </a>
             </div>
 
@@ -58,7 +67,7 @@ export const Navbar = () => {
               <ModeToggle />
             </div>
           </div>
-            {/* Burger mobile */}
+          {/* Burger mobile */}
           <div className="relative inset-y-0 left-0 flex items-center md:hidden">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>

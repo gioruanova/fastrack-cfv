@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { config } from "@/lib/config";
 import { GlassCard,GlassCardInner} from "../containers/GlassCard";
+import { ShapeLeft, ShapeRight } from "../ui/shape";
 import { Button } from "../ui/button";
 import { Spinner } from "../ui/spinner";
 import { Toaster, toast } from "sonner";
@@ -138,6 +139,7 @@ export function Contact() {
   return (
     <>
       <GlassCard>
+        <ShapeLeft />
         <div className="py-18 sm:py-20" id="contacto">
           <SecondaryHeading>Contacto</SecondaryHeading>
 
@@ -270,6 +272,7 @@ export function Contact() {
             </form>
           </GlassCardInner>
         </div>
+        <ShapeRight />
       </GlassCard>
       <Toaster richColors position="top-right" />
     </>

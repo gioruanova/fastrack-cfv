@@ -1,4 +1,5 @@
 import { GlassCard, GlassCardInner } from "../containers/GlassCard";
+import { ShapeLeft, ShapeRight } from "../ui/shape";
 
 import {
   ArrowPathIcon,
@@ -37,6 +38,7 @@ const features = [
 export function Nosotros() {
   return (
     <GlassCard>
+      <ShapeLeft />
       <div id="nosotros" className="py-18 sm:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl lg:text-center">
@@ -86,6 +88,7 @@ export function Nosotros() {
           </div>
         </div>
       </div>
+      <ShapeRight />
     </GlassCard>
   );
 }
