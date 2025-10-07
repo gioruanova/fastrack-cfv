@@ -5,7 +5,7 @@ import { NavLinks } from "@/components/ui/NavLinks"; // Opcional, si querés reu
 
 export const Footer = () => {
   return (
-    <footer className="text-foreground py-6 mt-8">
+    <footer className="text-foreground py-6 mt-8 relative z-10">
       <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Logo o nombre de la institución */}
         <a className="flex flex-col gap-0.5 text-2xl text-center md:text-start leading-5 italic capitalize" href="#backToTop">
