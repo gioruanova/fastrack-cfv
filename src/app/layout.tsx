@@ -27,7 +27,12 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <head>
+          <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#6366f1" />
+          <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+          <script src="/pwa.js" defer></script>
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
