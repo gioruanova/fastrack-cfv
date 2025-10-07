@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import InstallIcon from "./InstallIcon";
 import { InstallInstructionsModal } from "./InstallInstructionsModal";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 
 type BeforeInstallPromptEvent = Event & {
   prompt: () => Promise<void>;
@@ -18,7 +18,7 @@ declare global {
 }
 
 export const InstallButton = () => {
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
@@ -59,13 +59,13 @@ export const InstallButton = () => {
   }, []);
 
   // --- FORZAR MODAL PARA TEST ---
-  useEffect(() => {
-    const forceInstall = searchParams.get("forceInstall");
-    if (forceInstall === "ios") {
-      setShowModal(true);
-      setShowButton(false);
-    }
-  }, [searchParams]);
+  // useEffect(() => {
+  //   const forceInstall = searchParams.get("forceInstall");
+  //   if (forceInstall === "ios") {
+  //     setShowModal(true);
+  //     setShowButton(false);
+  //   }
+  // }, [searchParams]);
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
