@@ -1,6 +1,9 @@
 "use client";
-import InstallIcon from "./InstallIcon";
+
 import { useEffect, useState } from "react";
+import InstallIcon from "./InstallIcon";
+import { InstallInstructionsModal } from "./InstallInstructionsModal";
+import { useSearchParams } from "next/navigation";
 
 type BeforeInstallPromptEvent = Event & {
   prompt: () => Promise<void>;
@@ -10,18 +13,31 @@ type BeforeInstallPromptEvent = Event & {
 // Global type para iOS
 declare global {
   interface Navigator {
-    standalone?: boolean; // solo iOS
+    standalone?: boolean;
   }
 }
 
 export const InstallButton = () => {
+  const searchParams = useSearchParams();
+
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [showButton, setShowButton] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const [isIOS, setIsIOS] = useState(false);
+  const [isMacSafari, setIsMacSafari] = useState(false);
 
   useEffect(() => {
-    const isIOSStandalone = () => navigator.standalone === true;
+    const ua = navigator.userAgent.toLowerCase();
+    setIsIOS(/iphone|ipad|ipod/.test(ua));
+    setIsMacSafari(
+      /macintosh/.test(ua) &&
+        /safari/.test(ua) &&
+        !/chrome|chromium|edg/.test(ua)
+    );
 
+    const isIOSStandalone = () => navigator.standalone === true;
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
       isIOSStandalone();
@@ -35,26 +51,44 @@ export const InstallButton = () => {
     };
 
     window.addEventListener("beforeinstallprompt", handler as EventListener);
-
-    return () => {
+    return () =>
       window.removeEventListener(
         "beforeinstallprompt",
         handler as EventListener
       );
-    };
   }, []);
 
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+  // --- FORZAR MODAL PARA TEST ---
+  useEffect(() => {
+    const forceInstall = searchParams.get("forceInstall");
+    if (forceInstall === "ios") {
+      setShowModal(true);
+      setShowButton(false);
+    }
+  }, [searchParams]);
 
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log("Install outcome:", outcome);
-    setShowButton(false);
-    setDeferredPrompt(null);
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      // Android / Windows / Chrome macOS
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log("Install outcome:", outcome);
+      setShowButton(false);
+      setDeferredPrompt(null);
+    } else if (isIOS || isMacSafari) {
+      // iOS / Safari macOS: mostrar modal
+      setShowModal(true);
+    }
   };
 
-  if (!showButton) return null;
+  if (!showButton && !showModal) return null;
 
-  return <InstallIcon onClick={handleInstallClick} />;
+  return (
+    <>
+      {showButton && <InstallIcon onClick={handleInstallClick} />}
+      {showModal && (
+        <InstallInstructionsModal onClose={() => setShowModal(false)} />
+      )}
+    </>
+  );
 };

@@ -7,9 +7,8 @@ interface InstallIconProps {
 
 export default function InstallIcon({ onClick }: InstallIconProps) {
   return (
-    <div className="fixed bottom-2 right-2">
+    <div className="fixed bottom-2 right-2 z-999" id="install-btn">
       <Button
-        id="test-btn"
         variant={"disrruptive"}
         onClick={onClick}
         className="group inline-flex items-center gap-2 md:gap-0 overflow-hidden
