@@ -35,15 +35,23 @@ export const InstallInstructionsModal = ({
     <Dialog open onOpenChange={onClose}>
       <DialogContent className="w-[85%] gap-0.5">
         <DialogHeader>
-          <DialogTitle className="text-sm md:text-2xl">Instalar FastTrack en iOS/macOS</DialogTitle>
+          <DialogTitle className="text-sm md:text-2xl">
+            Instalar FastTrack en iOS/macOS
+          </DialogTitle>
           <DialogClose className="cursor-pointer" />
         </DialogHeader>
-        <ol className="list-decimal ml-6 mb-4 ">
-          <li className="text-sm md:text-lg/5 text-foreground">Toca el botón Compartir 📤</li>
-          <li className="text-sm md:text-lg/5 text-foreground">Selecciona Añadir a pantalla de inicio 📱</li>
-          <li className="text-sm md:text-lg/5 text-foreground">Elegi Añadir a pantalla de inicio ➕</li>
-          <li className="text-sm md:text-lg/5 text-foreground">
-            Listo, ya podes tener tu aplicación en tu pantalla de inicio ✅
+        <ol className="list-decimal ml-0 mb-4 ">
+          <li className="text-xs md:text-lg/5 text-foreground">
+            Toca el botón Compartir 📤
+          </li>
+          <li className="text-xs md:text-lg/5 text-foreground">
+            Elegi los 3 ... 📱
+          </li>
+          <li className="text-xs md:text-lg/5 text-foreground">
+            Elegi Añadir a pantalla de inicio ➕
+          </li>
+          <li className="text-xs md:text-lg/5 text-foreground">
+            Tu aplicación ya esta en tu pantalla de inicio ✅
           </li>
         </ol>
         <Carousel>

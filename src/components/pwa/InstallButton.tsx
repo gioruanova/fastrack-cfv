@@ -10,16 +10,18 @@ type BeforeInstallPromptEvent = Event & {
   userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
 };
 
+// Global type para iOS
 declare global {
   interface Navigator {
-    standalone?: boolean; // solo iOS
+    standalone?: boolean;
   }
 }
 
 export const InstallButton = () => {
   // const searchParams = useSearchParams();
 
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
   const [showButton, setShowButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -28,35 +30,35 @@ export const InstallButton = () => {
 
   useEffect(() => {
     const ua = navigator.userAgent.toLowerCase();
-    const ios = /iphone|ipad|ipod/.test(ua);
-    const macSafari = /macintosh/.test(ua) && /safari/.test(ua) && !/chrome|chromium|edg/.test(ua);
-
-    setIsIOS(ios);
-    setIsMacSafari(macSafari);
+    setIsIOS(/iphone|ipad|ipod/.test(ua));
+    setIsMacSafari(
+      /macintosh/.test(ua) &&
+        /safari/.test(ua) &&
+        !/chrome|chromium|edg/.test(ua)
+    );
 
     const isIOSStandalone = () => navigator.standalone === true;
     const isStandalone =
-      window.matchMedia("(display-mode: standalone)").matches || isIOSStandalone();
+      window.matchMedia("(display-mode: standalone)").matches ||
+      isIOSStandalone();
 
-    if (isStandalone) return; // si ya está instalada, no mostrar nada
+    if (isStandalone) return;
 
-    // Android / Windows / Chrome
     const handler = (e: BeforeInstallPromptEvent) => {
-      e.preventDefault();
+      e.preventDefault(); // evita que el prompt se muestre automáticamente
       setDeferredPrompt(e);
       setShowButton(true);
     };
+
     window.addEventListener("beforeinstallprompt", handler as EventListener);
-
-    // iOS / macOS Safari: mostrar botón siempre
-    if (ios || macSafari) {
-      setShowButton(true);
-    }
-
-    return () => window.removeEventListener("beforeinstallprompt", handler as EventListener);
+    return () =>
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handler as EventListener
+      );
   }, []);
 
-  // // --- FORZAR MODAL PARA TEST ---
+  // --- FORZAR MODAL PARA TEST ---
   // useEffect(() => {
   //   const forceInstall = searchParams.get("forceInstall");
   //   if (forceInstall === "ios") {
@@ -67,12 +69,14 @@ export const InstallButton = () => {
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
-      await deferredPrompt.prompt();
+      // Android / Windows / Chrome macOS
+      deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
       console.log("Install outcome:", outcome);
       setShowButton(false);
       setDeferredPrompt(null);
     } else if (isIOS || isMacSafari) {
+      // iOS / Safari macOS: mostrar modal
       setShowModal(true);
     }
   };
@@ -82,7 +86,9 @@ export const InstallButton = () => {
   return (
     <>
       {showButton && <InstallIcon onClick={handleInstallClick} />}
-      {showModal && <InstallInstructionsModal onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <InstallInstructionsModal onClose={() => setShowModal(false)} />
+      )}
     </>
   );
 };
