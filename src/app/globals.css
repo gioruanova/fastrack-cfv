@@ -127,4 +127,7 @@ html {
   }
 }
 
-
+.grecaptcha-badge {
+  z-index: 9999;
+  bottom: 0px!important;
+}

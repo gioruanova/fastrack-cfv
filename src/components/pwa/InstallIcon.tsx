@@ -7,11 +7,22 @@ interface InstallIconProps {
 
 export default function InstallIcon({ onClick }: InstallIconProps) {
   return (
-    <div className="fixed bottom-22 right-4 z-999" id="install-btn">
+    <div
+      className="
+        fixed bottom-17 
+        right-auto 
+        left-auto 
+        w-full flex 
+        items-center 
+        justify-center 
+        md:right-4 
+        z-999"
+      id="install-btn"
+    >
       <Button
         variant={"disrruptive"}
         onClick={onClick}
-        className="group inline-flex items-center gap-2 md:gap-0 overflow-hidden
+        className="h-auto group inline-flex items-center gap-2 md:gap-0 overflow-hidden
                w-auto md:w-10 md:hover:w-36 md:hover:gap-2 transition-all duration-300 ease-in-out"
       >
         <CloudArrowDownIcon
