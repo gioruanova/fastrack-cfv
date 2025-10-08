@@ -1,8 +1,9 @@
 "use client";
+import Script from "next/script";
 
 import { useEffect, useState } from "react";
 import { config } from "@/lib/config";
-import { GlassCard,GlassCardInner} from "../containers/GlassCard";
+import { GlassCard, GlassCardInner } from "../containers/GlassCard";
 import { ShapeLeft, ShapeRight } from "../ui/shape";
 import { Button } from "../ui/button";
 import { Spinner } from "../ui/spinner";
@@ -22,6 +23,17 @@ import {
 
 const getMessagesCategories = `${config.apiUrl}/public/messageCategories`;
 const sendMessageUrl = `${config.apiUrl}/public/messages`;
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      enterprise: {
+        execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      };
+    };
+  }
+}
+
 
 export interface Contact {
   message_email: string;
@@ -97,14 +109,20 @@ export function Contact() {
     setLoading(true);
 
     try {
+      // 1️⃣ Ejecutar reCAPTCHA para obtener token
+      const token = await window.grecaptcha.enterprise.execute(
+        "6LdL_pErAAAAALtFUHN1Rs4MgJbF6xBv_CDKdVMr",
+        { action: "submit" }
+      );
+
+      // 2️⃣ Enviar token junto con el form
       const res = await fetch(sendMessageUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, recaptchaToken: token }),
       });
 
       let data: { error?: string; message?: string } | null = null;
-
       try {
         data = await res.json();
       } catch {}
@@ -140,6 +158,10 @@ export function Contact() {
     <>
       <GlassCard>
         <ShapeLeft />
+        <Script
+          src="https://www.google.com/recaptcha/enterprise.js?render=6LdL_pErAAAAALtFUHN1Rs4MgJbF6xBv_CDKdVMr"
+          strategy="afterInteractive"
+        />
         <div className="py-18 sm:py-20" id="contacto">
           <SecondaryHeading>Contacto</SecondaryHeading>
 
