@@ -23,7 +23,7 @@ export const DefaultCategories: Props[] = [
   },
   {
     category_id: 3,
-    category_name: "Solciitar Demo",
+    category_name: "Solicitar Demo",
     category_status: 1,
     created_at: "",
     updated_at: "",
@@ -31,6 +31,13 @@ export const DefaultCategories: Props[] = [
   {
     category_id: 4,
     category_name: "Otros Local",
+    category_status: 1,
+    created_at: "",
+    updated_at: "",
+  },
+    {
+    category_id: 4,
+    category_name: "Otras consultas",
     category_status: 1,
     created_at: "",
     updated_at: "",
