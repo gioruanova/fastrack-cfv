@@ -9,7 +9,7 @@ export function HeroBanner() {
         <div className="mx-auto max-w-2xl pb-25 sm:py-48 lg:py-45">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-foreground ring-1 ring-white/10 hover:ring-white/20">
-              Desarrollamos para un mundo real.{" "}
+              Desarrollamos para un mundo real.
               <a href="#nosotros" className="font-semibold text-indigo-400">
                 <span aria-hidden="true" className="absolute inset-0"></span>
                 Conozca nuestra Vision <span aria-hidden="true">&rarr;</span>
@@ -19,7 +19,8 @@ export function HeroBanner() {
           <div className="text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-foreground sm:text-7xl italic">
               <div>
-                <strong>Fast</strong> <span className="extra-light">Track</span>
+                <span className="extra-bold mr-1">Fast</span>
+                <span className="font-extralight">Track</span>
               </div>
               <p className="mt-6 text-5xl font-light not-italic text-pretty">
                 Gestionando sus soluciones en base a sus necesidades

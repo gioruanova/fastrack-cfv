@@ -44,7 +44,7 @@ export const Navbar = () => {
                 className="flex flex-row md:flex-col gap-0.5 text-2xl leading-5 italic capitalize "
                 href="#backToTop"
               >
-                <b>fast</b>
+                <strong>fast</strong>
                 <span className="font-extralight">track</span>
               </a>
             </div>

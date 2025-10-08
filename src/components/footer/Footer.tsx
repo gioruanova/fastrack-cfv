@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Derechos de autor */}
         <div className="text-sm text-center md:text-right flex flex-col md:flex-col order-3 md:order-1">
-          &copy; {new Date().getFullYear()} Fast Track.{" "}
+          {new Date().getFullYear()} Fast Track.
           <span>Todos los derechos reservados.</span>
         </div>
 
@@ -23,8 +23,8 @@ export const Footer = () => {
           className="flex flex-col gap-0.5 text-5xl text-center md:text-end leading-10  italic capitalize order-1 md:order-3"
           href="#backToTop"
         >
-          <b>fast</b>
-          <span className=" font-extralight">track</span>
+          <strong>fast</strong>
+          <span className="font-extralight">track</span>
         </a>
       </div>
     </footer>
