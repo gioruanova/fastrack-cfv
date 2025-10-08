@@ -28,12 +28,14 @@ declare global {
   interface Window {
     grecaptcha: {
       enterprise: {
-        execute: (siteKey: string, options: { action: string }) => Promise<string>;
+        execute: (
+          siteKey: string,
+          options: { action: string }
+        ) => Promise<string>;
       };
     };
   }
 }
-
 
 export interface Contact {
   message_email: string;
@@ -111,7 +113,7 @@ export function Contact() {
     try {
       // 1️⃣ Ejecutar reCAPTCHA para obtener token
       const token = await window.grecaptcha.enterprise.execute(
-        "6LdL_pErAAAAALtFUHN1Rs4MgJbF6xBv_CDKdVMr",
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
         { action: "submit" }
       );
 
@@ -159,7 +161,7 @@ export function Contact() {
       <GlassCard>
         <ShapeLeft />
         <Script
-          src="https://www.google.com/recaptcha/enterprise.js?render=6LdL_pErAAAAALtFUHN1Rs4MgJbF6xBv_CDKdVMr"
+          src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
           strategy="afterInteractive"
         />
         <div className="py-18 sm:py-20" id="contacto">
