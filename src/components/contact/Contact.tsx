@@ -173,7 +173,7 @@ export function Contact() {
             contacto a la brevedad. Valoramos tu comunicación y trabajamos para
             ofrecer respuestas claras y efectivas.
           </DefaultParagraph>
-          <GlassCardInner>
+          <>
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-4 max-w-lg mx-auto"
@@ -227,7 +227,7 @@ export function Contact() {
                       handleValueChange("category_id", value)
                     }
                   >
-                    <SelectTrigger className="input w-full border-foreground border-1 rounded-md p-2 text-foreground cursor-pointer">
+                    <SelectTrigger className="input w-full min-h-[40px] border-foreground  border-1 rounded-md p-2 text-foreground cursor-pointer">
                       <SelectValue placeholder="" />
                     </SelectTrigger>
                     <SelectContent>
@@ -294,7 +294,7 @@ export function Contact() {
                 </div>
               )}
             </form>
-          </GlassCardInner>
+          </>
         </div>
         <ShapeRight />
       </GlassCard>
