@@ -1,6 +1,6 @@
 {
     "name": "Manifest title",
-    "short_name": "FastTrack",
+    "short_name": "Manfiest Short",
     "description": "Soluciones de Gestión - SAS",
     "start_url": "/",
     "display": "standalone",
