@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fast Track",
+  title: "Meta main",
   description: "Soluciones de Gestion - SAS",
 };
 
