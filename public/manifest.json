@@ -1,7 +1,7 @@
 {
-    "name": "Manifest title",
-    "short_name": "Manfiest Short",
-    "description": "Soluciones de Gestión - SAS",
+    "name": "Portal Clientes",
+    "short_name": "FastTrack",
+    "description": "Fast Track - Portal Clientes",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#09090b",
