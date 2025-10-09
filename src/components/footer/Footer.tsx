@@ -6,7 +6,7 @@ import { NavLinks } from "@/components/ui/NavLinks"; // Opcional, si querés reu
 export const Footer = () => {
   return (
     <footer className="text-foreground pt-6 pb-18 md:pb-12 mt-8 relative z-2 ">
-      <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center md:items-end justify-between gap-4">
         {/* Derechos de autor */}
         <div className="text-sm text-center md:text-right flex flex-col md:flex-col order-3 md:order-1">
           {new Date().getFullYear()} Fast Track.
@@ -15,7 +15,7 @@ export const Footer = () => {
 
         {/* Links rápidos (opcional) */}
         <nav className="flex gap-4 text-sm text-center order-2 md:order-2">
-          <NavLinks />
+          <NavLinks className="flex flex-row"/>
         </nav>
 
         {/* Logo o nombre de la institución */}

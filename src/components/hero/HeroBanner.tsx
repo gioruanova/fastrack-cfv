@@ -9,10 +9,10 @@ export function HeroBanner() {
         <div className="mx-auto max-w-2xl pb-25 sm:py-48 lg:py-45">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-foreground ring-1 ring-white/10 hover:ring-white/20">
-              Desarrollamos para un mundo real.
+              <span className="mr-1.5">Desarrollamos para un mundo real.</span>
               <a href="#nosotros" className="font-semibold text-indigo-400">
-                <span aria-hidden="true" className="absolute inset-0"></span>
-                Conozca nuestra Vision <span aria-hidden="true">&rarr;</span>
+                <span aria-hidden="true" className="absolute inset-0 m"></span>
+                Conocé nuestra Vision <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -23,16 +23,16 @@ export function HeroBanner() {
                 <span className="font-extralight">Track</span>
               </div>
               <p className="mt-6 text-5xl font-light not-italic text-pretty">
-                Gestionando sus soluciones en base a sus necesidades
+                Gestionamos tus necesidades y objetivos
               </p>
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-foreground sm:text-xl/8">
               Fast Track transforma desafíos reales en soluciones inteligentes,
-              adaptándose y evolucionando junto a usted.
+              adaptándose y evolucionando junto a vos.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button asChild variant="disrruptive" size="lg">
-                <a href="#planes">Comience Hoy</a>
+                <a href="#planes">Comenzá Hoy</a>
               </Button>
               <a
                 href="#propuesta"

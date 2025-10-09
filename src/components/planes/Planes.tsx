@@ -56,14 +56,13 @@ export function Planes() {
           />
         </div>
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base/7 font-semibold text-indigo-400">Planes</h2>
+          <h2 className="text-base/7 font-semibold text-indigo-400">Precios y opciones</h2>
           <p className="mt-2 text-5xl font-semibold tracking-tight text-balance text-foreground sm:text-6xl">
-            Elegi el plan perfecto que se adapte a tu organizacion y necesidades
+            Planifica tus necesidades
           </p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-foreground sm:text-xl/8">
-          Choose an affordable plan that’s packed with the best features for
-          engaging your audience, creating customer loyalty, and driving sales.
+          Elegi el esquema que mejor se adapte a tu organizacion y necesidades
         </p>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
           {tiers.map((tier, tierIdx) => (

@@ -104,7 +104,7 @@ export function Propuesta() {
                           controladorIncidencia.js
                         </div>
                         <div className="border-r border-gray-600/10 px-4 py-2">
-                          App.jsx
+                          App.js
                         </div>
                       </div>
                     </div>

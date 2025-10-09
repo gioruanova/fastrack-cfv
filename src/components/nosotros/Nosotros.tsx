@@ -46,7 +46,7 @@ export function Nosotros() {
               Planificamos - Creamos - Implementamos
             </h2>
             <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-foreground sm:text-5xl lg:text-balance">
-              Gestionamos soluciones acorde a sus necesidades y objetivos
+             Se parte del desarrollo
             </p>
 
             <p className="mt-6 text-lg/8 text-foreground">
@@ -76,7 +76,7 @@ export function Nosotros() {
                           className="size-6 text-white"
                         />
                       </div>
-                      {feature.name}
+                      <h2 className="text-2xl font-semibold text-foreground">{feature.name}</h2>
                     </dt>
                     <dd className="mt-2 text-base/7 text-foreground">
                       {feature.description}
