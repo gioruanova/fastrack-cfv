@@ -21,8 +21,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const getMessagesCategories = `${config.apiUrl}/public/messageCategories`;
-const sendMessageUrl = `${config.apiUrl}/public/messages`;
+const getMessagesCategories = `${config.apiUrl}/publicApi/messageCategories`;
+const sendMessageUrl = `${config.apiUrl}/publicApi/messages`;
 
 declare global {
   interface Window {
@@ -176,7 +176,7 @@ export function Contact() {
           <>
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-4 max-w-lg mx-auto"
+              className="flex flex-col gap-4 max-w-lg mx-auto mt-8"
             >
               <div className="flex flex-col">
                 <label
